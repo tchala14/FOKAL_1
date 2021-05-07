@@ -1,0 +1,10 @@
+select count(*) as Hommes from empr WHERE empr_sexe=1 and empr_date_expiration=01-01-2019 or empr_date_adhesion=12-31-2019 and empr_location = 12
+
+SELECT * FROM
+(select count(*) AS Hommes from empr WHERE empr_sexe=1 and (year(empr_date_expiration)=2019 or year(empr_date_adhesion)=2019) and empr_location = 12) AS Hommes,
+
+(select count(*) AS Femmes from empr WHERE empr_sexe=2 and (year(empr_date_expiration)=2019 or year(empr_date_adhesion)=2019) and empr_location = 12) AS Femmes
+
+
+
+select count(*) AS Qte from empr WHERE empr_cb like '01%' and empr_sexe = 1 and empr_date_expiration > 01-01-2020
